@@ -1,0 +1,177 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lunaria | My Cycle</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="wavey-top">
+      <div class="calendar-container">
+
+        <!-- Profile Icon -->
+        <div class="user-profile" id="profile-toggle">
+          <i class="fa-solid fa-moon"></i>
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown" id="profile-dropdown">
+          <p><strong>Name:</strong> {{user.name}}</p>
+          <p><strong>Email:</strong> {{user.email}}</p>
+          <p><a
+              href="/logout"
+              style="text-decoration: none; color: inherit;"
+            ><strong>Logout</strong></a></p>
+
+        </div>
+
+        <!-- Section Title -->
+        <h2 class="section-title">Your Lunar Cycle</h2>
+
+        <!-- Calendar Box -->
+        <div class="calendar">
+          <div class="calendar-header">
+            <div class="month-container">
+              <div class="month-picker" id="month-picker">May</div>
+              <div class="month-list"></div>
+            </div>
+            <div class="year-picker">
+              <span class="year-change" id="prev-year">&lt;</span>
+              <span id="year">2023</span>
+              <span class="year-change" id="next-year">&gt;</span>
+            </div>
+          </div>
+
+          <!-- Weekdays -->
+          <div class="calendar-body">
+            <div class="calendar-weekday">
+              <div>Sun</div><div>Mon</div><div>Tue</div>
+              <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+            </div>
+            <div class="calendar-days"></div>
+          </div>
+
+          <!-- Button -->
+          <button id="log-period-btn" class="log-date-btn">Log Period</button>
+
+        </div>
+      </div>
+      <div id="feedback" class="feedback-message hidden"></div>
+
+      <!-- Waves -->
+      <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+      <div class="wave wave3"></div>
+
+      <script src="/js/calendar.js"></script>
+
+    </section>
+    <section class="moodtracking">
+      <div class="row">
+        <div class="column1">
+          <h1>Mood Tracker</h1>
+          <div class="mood-selector">
+            <h2>How are you feeling today?</h2>
+            <button class="mood-btn" data-mood="4"><i
+                class="fa-solid fa-face-laugh-beam"
+              ></i></button>
+            <button class="mood-btn" data-mood="3"><i
+                class="fa-solid fa-face-smile"
+              ></i></button>
+            <button class="mood-btn" data-mood="2"><i
+                class="fa-solid fa-face-angry"
+              ></i></button>
+            <button class="mood-btn" data-mood="1"><i
+                class="fa-solid fa-face-sad-tear"
+              ></i></button>
+          </div>
+          <div class="mood-history">
+            <h2>Mood History:</h2>
+            <canvas class="mood-chart"></canvas>
+          </div>
+        </div>
+        <div class="column">
+          <h1>🌕 Welcome to Lunaria</h1>
+          <p>Your body moves in cycles—and understanding them is powerful. By tracking your period, mood, and vitals, you're not just collecting data—you’re deepening your connection to your health.</p>
+          <p>
+            Hormonal shifts affect energy, mood, sleep, digestion, and focus. Recognizing these patterns helps you anticipate changes, ease symptoms, and make empowered choices—whether that’s planning workouts, navigating emotions, or spotting when something feels off.
+          </p>
+          <p>
+            Mood tracking enhances emotional awareness and can reduce stress and anxiety. Combined with menstrual tracking, it reveals how deeply your mind and body are linked.
+          </p>
+          <p><strong>Lunaria is your space to tune in.</strong></p>
+          <p>Every log is an act of self-awareness. You’re not just tracking a cycle—you’re honoring it..</p>
+        </div>
+      </div>
+      <script>window.userId = {{user.id}};</script>
+      <script src="/js/mood.js"></script>
+    </section>
+    <section class="vitals">
+      <h2>Vitals</h2>
+      <div class="register-box">
+        <form id="vitals-form">
+          <label for="age">Age</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            disabled
+            placeholder="Enter your age"
+          />
+
+          <label for="height">Height (cm)</label>
+          <input
+            type="number"
+            id="height"
+            name="height"
+            disabled
+            placeholder="Enter your height"
+          />
+
+          <label for="weight">Weight (kg)</label>
+          <input
+            type="number"
+            id="weight"
+            name="weight"
+            disabled
+            placeholder="Enter your weight"
+          />
+          <label for="rhr">Resting heart rate (bpm)</label>
+          <input
+            type="number"
+            id="rhr"
+            name="rhr"
+            disabled
+            placeholder="Enter your resting heart rate"
+          />
+          <label for="bmi">Body Mass Index</label>
+          <input type="number" id="bmi" name="bmi" disabled />
+
+          <button type="button" id="edit-btn"><i
+              class="fa-solid fa-pen-to-square"
+            ></i>
+            Edit</button>
+        </form>
+        <p id="bmi-warning" style="color: red; font-weight: bold;"></p>
+        <p id="rhr-warning" style="color: red; font-weight: bold;"></p>
+      </div>
+
+      <script src="/js/vitals.js"></script>
+
+      <footer>
+        All rights reserved
+      </footer>
+    </section>
+  </body>
+</html>

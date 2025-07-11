@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>registration form</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/stylereg.css">
+  </head>
+  <body>
+      <div class="register-box" id="sign-up">
+        <h1 class="form-title">Register</h1>
+        <form method="post" action="/auth/register">
+          <div class="input-box">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" name="name" id="name" placeholder="Name" required>
+          </div>
+          <div class="input-box">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" name="email" id="email" placeholder="Email-id" required>
+          </div>
+          <div class="input-box">
+            <i class="fa-solid fa-lock"></i>
+            <input type="text" name="password" id="password" placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn" value="Sign Up" name="signup" id="signup">Sign Up</button>
+        </form>
+        <p>------------OR------------</p>
+        <div class="links">
+          <p>Already have account?</p>
+          <button id="signInButton">Sign In</button>
+        </div>
+        {{#if message}}
+         <h4 class="alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
+      </div>
+  </body>
+</html>
